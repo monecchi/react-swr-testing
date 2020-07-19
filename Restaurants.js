@@ -12,11 +12,11 @@ const Restaurants = () => {
     fetcher
   );
 
-  const handleMutate = (e) => {
+  const handleMutate = e => {
     e.preventDefault();
     e.stopPropagation();
     mutate();
-  }
+  };
 
   if (error) return "An error has occurred.";
   if (!data) return "Loading...";
@@ -30,7 +30,9 @@ const Restaurants = () => {
       <strong>{data[slug].formatted_phone}</strong>{" "}
       <strong>{data[slug].today.slug}</strong>{" "}
       <strong>Aberto: {aberto == 1 ? "SIM" : "NÃO"}</strong>
-      <div><button onClick={() => handleMutate()}>Refresh</button></div>
+      <div>
+        <button onClick={() => handleMutate()}>Refresh</button>
+      </div>
     </div>
   );
 };
