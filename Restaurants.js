@@ -25,19 +25,6 @@ const Restaurants = () => {
     mutate();
   };
 
-  return (
-    <>
-      <button
-        onClick={e => {
-          e.preventDefault(), handleMutate();
-        }}
-      >
-        Refresh
-      </button>
-      {isValidating && <p>Refreshing...</p>}
-    </>
-  );
-
   if (error) return "An error has occurred.";
   if (!data) return "Loading...";
   if (data) {
@@ -51,7 +38,14 @@ const Restaurants = () => {
       <strong>{data[slug].today.slug}</strong>{" "}
       <strong>Aberto: {aberto == 1 ? "SIM" : "NÃO"}</strong>
       <div>
-        <button onClick={() => handleMutate()}>Refresh</button>
+      <button
+        onClick={e => {
+          e.preventDefault(), handleMutate();
+        }}
+      >
+        Refresh
+      </button>
+      {isValidating && <p>Refreshing...</p>}
       </div>
     </div>
   );
