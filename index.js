@@ -10,6 +10,11 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+  }
+
+  componentDidUpdate() {}
+
   render() {
     return (
       <div>
