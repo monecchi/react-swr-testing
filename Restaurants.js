@@ -45,6 +45,7 @@ const Restaurants = () => {
       >
         Refresh
       </button>
+      
       {isValidating && <p>Refreshing...</p>}
       </div>
     </div>
