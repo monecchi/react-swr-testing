@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import useSWR from "swr";
 import axios from "axios";
 
@@ -10,16 +10,13 @@ const fetcher = url => axios.get(url).then(res => res.data); // with axios
 
 let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1";
 
-const Restaurants = () => {
+const Restaurants = (props) => {
   //const { data, error, mutate } = useSWR(
   //"https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/",
   //fetcher
   //);
 
-  const { data, error, isValidating, mutate } = useSWR(
-    apiURL + `/stores/`,
-    fetcher
-  );
+  const { data, error, isValidating, mutate } = useSWR(`${apiURL}/stores/`, fetcher);
 
   const handleMutate = () => {
     mutate();
