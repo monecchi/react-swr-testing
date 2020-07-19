@@ -11,10 +11,9 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-  }
+  //componentDidMount() {}
 
-  componentDidUpdate() {}
+  //componentDidUpdate() {}
 
   render() {
     return (
