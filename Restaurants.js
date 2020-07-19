@@ -4,9 +4,9 @@ import axios from "axios";
 
 // SWR, Mutate on data update or on request
 
-const fetcher = url => fetch(url).then(res => res.json());
+//const fetcher = url => fetch(url).then(res => res.json());
 
-const axios_fetcher = url => axios.get(url).then(res => res.data); // with axios
+const fetcher = url => axios.get(url).then(res => res.data); // with axios
 
 let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1";
 
@@ -18,7 +18,7 @@ const Restaurants = () => {
 
   const { data, error, isValidating, mutate } = useSWR(
     apiURL + `/stores/`,
-    axios_fetcher
+    fetcher
   );
 
   const handleMutate = () => {
