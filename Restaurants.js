@@ -2,6 +2,8 @@ import React from "react";
 import useSWR from "swr";
 import axios from "axios";
 
+// SWR, Mutate on data update or on request
+
 const fetcher = url => fetch(url).then(res => res.json());
 
 const Restaurants = () => {
