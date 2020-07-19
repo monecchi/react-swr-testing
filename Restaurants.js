@@ -12,18 +12,30 @@ let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1";
 
 const Restaurants = () => {
   //const { data, error, mutate } = useSWR(
-    //"https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/",
-    //fetcher
+  //"https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/",
+  //fetcher
   //);
 
-  const { data, error, mutate } = useSWR(apiURL + `/stores/`, axios_fetcher);
+  const { data, error, isValidating, mutate } = useSWR(
+    apiURL + `/stores/`,
+    axios_fetcher
+  );
 
   const handleMutate = () => {
     mutate();
   };
 
   return (
-     <><button onClick={() => handleMutate()}>Refresh</button></>
+    <>
+      <button
+        onClick={e => {
+          e.preventDefault(), handleMutate();
+        }}
+      >
+        Refresh
+      </button>
+      {isValidating && <p>Refreshing...</p>}
+    </>
   );
 
   if (error) return "An error has occurred.";
