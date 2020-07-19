@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import "./style.css";
+import Restaurants from "./Restaurants";
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class App extends Component {
           <hr />
           <p>Incoming data:</p>
         </div>
+        <Restaurants />
       </div>
     );
   }
