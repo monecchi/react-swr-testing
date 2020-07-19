@@ -6,11 +6,17 @@ import axios from "axios";
 
 const fetcher = url => fetch(url).then(res => res.json());
 
+const axios_fetcher = url => axios.get(url).then(res => res.data); // with axios
+
+let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1";
+
 const Restaurants = () => {
-  const { data, error, mutate } = useSWR(
-    "https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/",
-    fetcher
-  );
+  //const { data, error, mutate } = useSWR(
+    //"https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/",
+    //fetcher
+  //);
+
+  const { data, error, mutate } = useSWR(apiURL + `/stores/`, axios_fetcher);
 
   const handleMutate = e => {
     e.preventDefault();
