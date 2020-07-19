@@ -18,11 +18,13 @@ const Restaurants = () => {
 
   const { data, error, mutate } = useSWR(apiURL + `/stores/`, axios_fetcher);
 
-  const handleMutate = e => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleMutate = () => {
     mutate();
   };
+
+  return (
+     <><button onClick={() => handleMutate()}>Refresh</button></>
+  );
 
   if (error) return "An error has occurred.";
   if (!data) return "Loading...";
